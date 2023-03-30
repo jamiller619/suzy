@@ -1,0 +1,15 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "bracketSameLine": true,
+  "importOrder": ["^node:(.*)$", "<THIRD_PARTY_MODULES>", "^~/(.*)$", "^[./]"],
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": [
+    "typescript",
+    "jsx",
+    "topLevelAwait",
+    "importAssertions"
+  ]
+}

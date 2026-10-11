@@ -1,0 +1,7 @@
+{
+  "$schema": "./suzy.schema.json",
+  "colors": {
+    "accent": "teal",
+    "gray": "slate"
+  }
+}

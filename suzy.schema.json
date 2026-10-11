@@ -1,0 +1,317 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Suzy configuration v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "version": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "colors": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accent": {
+          "type": "string",
+          "enum": [
+            "gray",
+            "mauve",
+            "slate",
+            "sage",
+            "olive",
+            "sand",
+            "tomato",
+            "red",
+            "ruby",
+            "crimson",
+            "pink",
+            "plum",
+            "purple",
+            "violet",
+            "iris",
+            "indigo",
+            "blue",
+            "cyan",
+            "teal",
+            "jade",
+            "green",
+            "grass",
+            "brown",
+            "bronze",
+            "gold",
+            "sky",
+            "mint",
+            "lime",
+            "yellow",
+            "amber",
+            "orange"
+          ]
+        },
+        "gray": {
+          "type": "string",
+          "enum": [
+            "gray",
+            "mauve",
+            "slate",
+            "sage",
+            "olive",
+            "sand"
+          ]
+        },
+        "warning": {
+          "type": "string",
+          "enum": [
+            "gray",
+            "mauve",
+            "slate",
+            "sage",
+            "olive",
+            "sand",
+            "tomato",
+            "red",
+            "ruby",
+            "crimson",
+            "pink",
+            "plum",
+            "purple",
+            "violet",
+            "iris",
+            "indigo",
+            "blue",
+            "cyan",
+            "teal",
+            "jade",
+            "green",
+            "grass",
+            "brown",
+            "bronze",
+            "gold",
+            "sky",
+            "mint",
+            "lime",
+            "yellow",
+            "amber",
+            "orange"
+          ]
+        },
+        "danger": {
+          "type": "string",
+          "enum": [
+            "gray",
+            "mauve",
+            "slate",
+            "sage",
+            "olive",
+            "sand",
+            "tomato",
+            "red",
+            "ruby",
+            "crimson",
+            "pink",
+            "plum",
+            "purple",
+            "violet",
+            "iris",
+            "indigo",
+            "blue",
+            "cyan",
+            "teal",
+            "jade",
+            "green",
+            "grass",
+            "brown",
+            "bronze",
+            "gold",
+            "sky",
+            "mint",
+            "lime",
+            "yellow",
+            "amber",
+            "orange"
+          ]
+        },
+        "success": {
+          "type": "string",
+          "enum": [
+            "gray",
+            "mauve",
+            "slate",
+            "sage",
+            "olive",
+            "sand",
+            "tomato",
+            "red",
+            "ruby",
+            "crimson",
+            "pink",
+            "plum",
+            "purple",
+            "violet",
+            "iris",
+            "indigo",
+            "blue",
+            "cyan",
+            "teal",
+            "jade",
+            "green",
+            "grass",
+            "brown",
+            "bronze",
+            "gold",
+            "sky",
+            "mint",
+            "lime",
+            "yellow",
+            "amber",
+            "orange"
+          ]
+        },
+        "info": {
+          "type": "string",
+          "enum": [
+            "gray",
+            "mauve",
+            "slate",
+            "sage",
+            "olive",
+            "sand",
+            "tomato",
+            "red",
+            "ruby",
+            "crimson",
+            "pink",
+            "plum",
+            "purple",
+            "violet",
+            "iris",
+            "indigo",
+            "blue",
+            "cyan",
+            "teal",
+            "jade",
+            "green",
+            "grass",
+            "brown",
+            "bronze",
+            "gold",
+            "sky",
+            "mint",
+            "lime",
+            "yellow",
+            "amber",
+            "orange"
+          ]
+        }
+      }
+    },
+    "font": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "body": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^(?!.*(?:/\\*|\\*/|[uU][rR][lL]\\s*\\(|@[iI][mM][pP][oO][rR][tT]))(?=.*\\S)[^;{}<>\\\\\\u0000-\\u001f]+$",
+              "description": "One CSS value. No declaration delimiters, markup, escapes, comments, or URLs."
+            },
+            "mono": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^(?!.*(?:/\\*|\\*/|[uU][rR][lL]\\s*\\(|@[iI][mM][pP][oO][rR][tT]))(?=.*\\S)[^;{}<>\\\\\\u0000-\\u001f]+$",
+              "description": "One CSS value. No declaration delimiters, markup, escapes, comments, or URLs."
+            }
+          }
+        }
+      }
+    },
+    "radius": {
+      "type": "string",
+      "enum": [
+        "none",
+        "subtle",
+        "rounded",
+        "pill"
+      ]
+    },
+    "density": {
+      "type": "string",
+      "enum": [
+        "compact",
+        "comfortable",
+        "spacious"
+      ]
+    },
+    "appearance": {
+      "type": "string",
+      "enum": [
+        "light",
+        "dark",
+        "both"
+      ]
+    },
+    "output": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "overrides": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shared": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^--suzy-[a-z][a-z0-9-]*$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!.*(?:/\\*|\\*/|[uU][rR][lL]\\s*\\(|@[iI][mM][pP][oO][rR][tT]))(?=.*\\S)[^;{}<>\\\\\\u0000-\\u001f]+$",
+            "description": "One CSS value. No declaration delimiters, markup, escapes, comments, or URLs."
+          }
+        },
+        "light": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^--suzy-[a-z][a-z0-9-]*$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!.*(?:/\\*|\\*/|[uU][rR][lL]\\s*\\(|@[iI][mM][pP][oO][rR][tT]))(?=.*\\S)[^;{}<>\\\\\\u0000-\\u001f]+$",
+            "description": "One CSS value. No declaration delimiters, markup, escapes, comments, or URLs."
+          }
+        },
+        "dark": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^--suzy-[a-z][a-z0-9-]*$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!.*(?:/\\*|\\*/|[uU][rR][lL]\\s*\\(|@[iI][mM][pP][oO][rR][tT]))(?=.*\\S)[^;{}<>\\\\\\u0000-\\u001f]+$",
+            "description": "One CSS value. No declaration delimiters, markup, escapes, comments, or URLs."
+          }
+        }
+      }
+    }
+  }
+}

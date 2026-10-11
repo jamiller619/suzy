@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{themeName}} — suzy</title>
+    <style>
+      {{themeCss}}
+    </style>
+    <style>
+      /* Hallmark · pre-emit critique: P4 H4 E4 S5 R5 V4
+   Theme: Suzy live tokens. Structure: working specimen with a token ledger. */
+      {{presetCss}}
+      html,
+      body {
+        overflow-x: clip;
+      }
+      header {
+        padding: 1.25rem clamp(1rem, 4vw, 4rem);
+        border-bottom: 1px solid var(--suzy-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .brand svg {
+        display: block;
+        width: 5rem;
+        height: auto;
+        fill: currentColor;
+      }
+      .tagline,
+      .eyebrow {
+        color: var(--suzy-text-muted);
+        font-size: var(--suzy-font-size-1);
+        line-height: 1.5;
+        font-family: var(--suzy-font-mono, inherit);
+      }
+      main {
+        max-width: 1440px;
+        margin: auto;
+        padding: clamp(1rem, 4vw, 4rem);
+      }
+      .intro {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: end;
+        padding-bottom: 3rem;
+      }
+      h1 {
+        font-size: clamp(3rem, 8vw, 6.5rem);
+        line-height: 1;
+        letter-spacing: -0.065em;
+        margin: 1rem 0;
+      }
+      h1,
+      h2,
+      h3 {
+        overflow-wrap: anywhere;
+        min-width: 0;
+        font-style: normal;
+      }
+      h2 {
+        font-size: clamp(1.8rem, 3vw, 2.75rem);
+        line-height: var(--suzy-line-height-tight);
+        letter-spacing: -0.04em;
+      }
+      h3 {
+        margin-top: 0;
+      }
+      .intro p {
+        max-width: 38ch;
+        color: var(--suzy-text-muted);
+      }
+      .config {
+        font-family: var(--suzy-font-mono, inherit);
+        font-size: var(--suzy-font-size-2);
+        border-left: 2px solid var(--suzy-border-strong);
+        padding-left: 1rem;
+        overflow-wrap: anywhere;
+      }
+      .dual {
+        display: grid;
+        grid-template-columns: repeat({{modeCount}}, minmax(0, 1fr));
+        border: 1px solid var(--suzy-border);
+      }
+      .specimen {
+        min-width: 0;
+        background: var(--suzy-bg);
+        color: var(--suzy-text);
+        padding: clamp(1rem, 3vw, 2.5rem);
+      }
+      .card {
+        background: var(--suzy-surface);
+        padding: var(--suzy-panel-padding);
+        border: 1px solid var(--suzy-border);
+        border-radius: var(--suzy-panel-radius);
+        margin-block: var(--suzy-section-gap);
+      }
+      .native-controls {
+        display: grid;
+        gap: var(--suzy-control-gap);
+        margin-block: var(--suzy-section-gap);
+      }
+      .specimen .choices {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--suzy-control-gap);
+      }
+      .specimen .choices label {
+        display: flex;
+        align-items: center;
+      }
+      .muted {
+        color: var(--suzy-text-muted);
+      }
+      .specimen label,
+      header label {
+        display: grid;
+        gap: var(--suzy-control-gap);
+        font-size: var(--suzy-font-size-2);
+      }
+      .actions {
+        display: flex;
+        gap: var(--suzy-control-gap);
+        align-items: center;
+        flex-wrap: wrap;
+        margin-block: 1rem;
+      }
+      nav {
+        display: grid;
+        background: var(--suzy-surface-raised);
+        padding: 1rem;
+        border: 1px solid var(--suzy-border);
+        border-radius: var(--suzy-panel-radius);
+        box-shadow: var(--suzy-shadow-2);
+      }
+      nav a {
+        padding-block: 0.3rem;
+        white-space: nowrap;
+      }
+      .status {
+        padding: 0.65rem 1rem;
+        font-size: var(--suzy-font-size-2);
+        border: 1px solid;
+        border-radius: var(--suzy-radius-1);
+      }
+      {{statusCss}}
+      .chapter {
+        padding-block: 2.5rem;
+        border-bottom: 1px solid var(--suzy-border);
+      }
+      .chapter-head {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+      }
+      .chapter h2 {
+        font-size: 1.6rem;
+      }
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 0.25rem;
+        margin-bottom: 1.5rem;
+      }
+      .swatch {
+        height: 4rem;
+        border: 1px solid var(--suzy-border);
+        border-radius: var(--suzy-radius-1);
+      }
+      .swatch-label {
+        text-align: center;
+        color: var(--suzy-text-muted);
+        font-size: 0.65rem;
+        font-family: var(--suzy-font-mono, inherit);
+        margin-top: 0.4rem;
+      }
+      .palette {
+        padding: 1rem;
+        background: var(--suzy-bg);
+        color: var(--suzy-text);
+      }
+      .type-sample {
+        overflow-wrap: anywhere;
+      }
+      .type-examples {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+        gap: var(--suzy-space-7);
+        margin-top: var(--suzy-space-7);
+      }
+      .type-example {
+        min-width: 0;
+        border-top: 1px solid var(--suzy-border);
+        padding-top: var(--suzy-space-4);
+        overflow-wrap: anywhere;
+      }
+      .type-example h3 {
+        font-size: var(--suzy-font-size-6);
+        font-weight: var(--suzy-font-weight-semibold);
+        line-height: var(--suzy-line-height-tight);
+      }
+      .type-example .type-lead {
+        font-size: var(--suzy-font-size-5);
+        line-height: var(--suzy-line-height-normal);
+      }
+      .type-prose {
+        max-width: 60ch;
+        line-height: var(--suzy-line-height-relaxed);
+      }
+      .type-caption {
+        font-size: var(--suzy-font-size-1);
+        color: var(--suzy-text-muted);
+      }
+      .type-example blockquote {
+        margin-inline: 0;
+        padding-inline-start: var(--suzy-space-4);
+        border-inline-start: 2px solid var(--suzy-border-strong);
+      }
+      .type-example pre {
+        overflow: auto;
+        padding: var(--suzy-space-4);
+        background: var(--suzy-surface);
+        font-size: var(--suzy-font-size-2);
+        line-height: var(--suzy-line-height-relaxed);
+      }
+      .preset-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+        gap: 1rem;
+      }
+      .preset {
+        padding: 1rem;
+        border: 1px solid var(--suzy-border);
+        background: var(--suzy-bg);
+        color: var(--suzy-text);
+      }
+      .preset .card {
+        margin-bottom: 0;
+      }
+      .token-group {
+        margin-block: 1rem;
+      }
+      .table-wrap {
+        overflow: auto;
+        margin-top: 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: var(--suzy-font-size-1);
+      }
+      th,
+      td {
+        padding: 0.6rem;
+        border-bottom: 1px solid var(--suzy-border);
+      }
+      code {
+        font-family: var(--suzy-font-mono, inherit);
+        overflow-wrap: anywhere;
+      }
+      footer {
+        padding-block: 2rem;
+        color: var(--suzy-text-muted);
+        font-size: var(--suzy-font-size-2);
+      }
+      #connection {
+        padding: 0.5rem 1rem;
+        background: var(--suzy-warning-bg);
+        color: var(--suzy-warning-text);
+      }
+      @media (max-width: 768px) {
+        .intro,
+        .dual {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .intro {
+          gap: 1rem;
+        }
+        .chapter-head {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="connection" role="status" hidden></div>
+    <header>
+      <span class="brand"
+        ><span role="img" aria-label="Suzy">{{logo}}</span
+        ><span class="tagline"> / Cascade FTW.</span></span
+      ><label
+        >Appearance<select id="appearance">
+          <option value="auto">System</option>
+          {{appearanceOptions}}
+        </select></label
+      >
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <div class="eyebrow">THEME WORKBENCH / {{themeName}}</div>
+          <h1>Small choices.<br>Whole systems.</h1>
+          <p>
+            Your theme, in use. Inspect the scales, try the controls, and make
+            it your own.
+          </p>
+        </div>
+        <div class="config">
+          accent / {{accent}}<br>neutral / {{gray}}<br>density / {{densityName}}<br>radius
+          / {{radiusName}}<br>appearance / {{appearance}}
+        </div>
+      </section>
+      <div class="dual">{{specimens}}</div>
+      <section class="chapter" id="palettes">
+        <div class="chapter-head">
+          <h2>01 / Color, step by step</h2>
+          <span class="muted">Twelve steps. A role for each.</span>
+        </div>
+        {{palettes}}
+      </section>
+      <section class="chapter" id="type">
+        <h2>02 / A scale that speaks</h2>
+        <p class="muted">Eight sizes, four weights, and two font families. See how they work together.</p>
+        {{typography}}
+        <div class="type-examples">
+          <article class="type-example">
+            <p class="eyebrow">Editorial / heading, lead, and body</p>
+            <h3>Small details, better days.</h3>
+            <p class="type-lead">A good workspace gives your ideas room to grow.</p>
+            <div class="type-prose">
+              <p>Start with a clear title and a little breathing room. A comfortable line length helps readers move through longer passages without losing their place.</p>
+              <p>Use <strong>strong text for emphasis</strong>, <em>italics for a change in voice</em>, and <a href="#tokens">links with a clear destination</a>. Each has a different job.</p>
+            </div>
+            <p class="type-caption">Field notes · 3 minute read · Updated October 11, 2026</p>
+          </article>
+          <article class="type-example">
+            <p class="eyebrow">Weights / regular to bold</p>
+            <h3>Give every line a role.</h3>
+            <p style="font-weight:var(--suzy-font-weight-regular)">400 / Regular — Comfortable reading for everyday text.</p>
+            <p style="font-weight:var(--suzy-font-weight-medium)">500 / Medium — A little emphasis for a label.</p>
+            <p style="font-weight:var(--suzy-font-weight-semibold)">600 / Semibold — A clear title for a new section.</p>
+            <p style="font-weight:var(--suzy-font-weight-bold)">700 / Bold — Something worth remembering.</p>
+          </article>
+          <article class="type-example">
+            <p class="eyebrow">Reading / quotes and lists</p>
+            <h3>Make room for the essentials.</h3>
+            <blockquote class="type-prose"><p>“The best part of a blank page is that you get to decide what belongs on it.”</p></blockquote>
+            <p>A short checklist for your next draft:</p>
+            <ul class="type-prose">
+              <li>Lead with the idea that matters most.</li>
+              <li>Break longer thoughts into readable paragraphs.</li>
+              <li>Let headings help readers find their way.</li>
+            </ul>
+            <p class="type-caption">Caption / Supporting details can stay quiet and still be readable.</p>
+          </article>
+          <article class="type-example">
+            <p class="eyebrow">Monospace / code and shortcuts</p>
+            <h3>A place for precise details.</h3>
+            <p>Browser fonts are used by default. Configure body or mono font families to override them.</p>
+            <pre><code>.article {
+  font-size: var(--suzy-font-size-3);
+  line-height: var(--suzy-line-height-relaxed);
+}</code></pre>
+            <p>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save your changes.</p>
+            <p class="type-caption">Sample output: <samp>Theme compiled successfully.</samp></p>
+          </article>
+        </div>
+      </section>
+      <section class="chapter">
+        <h2>03 / Give it room</h2>
+        <p class="muted">
+          Density changes space, not typography. Overrides remain in effect in
+          these samples.
+        </p>
+        <div class="preset-grid">{{densityPresets}}</div>
+        <h2>04 / Find your shape</h2>
+        <div class="preset-grid">{{radiusPresets}}</div>
+      </section>
+      <section class="chapter" id="tokens">
+        <h2>05 / Under the surface</h2>
+        <p class="muted">
+          The same resolved tokens used by the compiler and diagnostics.
+        </p>
+        {{tokens}}
+      </section>
+      <footer>
+        Generated locally. No remote fonts, assets, or runtime required by your
+        CSS.<br>Token contrast checks do not guarantee application
+        accessibility.
+      </footer>
+    </main>
+    <script>
+      const select = document.querySelector('#appearance')
+      try {
+        const saved = sessionStorage.getItem('suzy-appearance')
+        if ([...select.options].some((o) => o.value === saved))
+          select.value = saved
+      } catch {}
+      function apply() {
+        if (select.value === 'auto')
+          document.documentElement.removeAttribute('data-suzy-theme')
+        else document.documentElement.dataset.suzyTheme = select.value
+      }
+      apply()
+      select.addEventListener('change', () => {
+        apply()
+        try {
+          sessionStorage.setItem('suzy-appearance', select.value)
+        } catch {}
+      })
+      document
+        .querySelectorAll('[data-dialog]')
+        .forEach((button) =>
+          button.addEventListener('click', () =>
+            document
+              .querySelector('#dialog-' + button.dataset.dialog)
+              .showModal(),
+          ),
+        )
+      const events = new EventSource('/events')
+      const status = document.querySelector('#connection')
+      events.onmessage = (event) => {
+        const state = JSON.parse(event.data)
+        if (state.revision !== {{revision}}) location.reload()
+        status.hidden = !state.error
+        status.textContent = state.error || ''
+      }
+      events.onerror = () => {
+        status.hidden = false
+        status.textContent = 'Preview disconnected. Reconnecting…'
+      }
+    </script>
+  </body>
+</html>

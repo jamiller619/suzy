@@ -1,0 +1,49 @@
+{
+  "name": "suzy",
+  "version": "0.1.0",
+  "description": "Cascade FTW. A deterministic CSS theme compiler.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "yarn@1.22.22",
+  "bin": {
+    "suzy": "./dist/cli/main.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/core/compiler.d.ts",
+      "import": "./dist/core/compiler.js"
+    },
+    "./schema": "./suzy.schema.json"
+  },
+  "files": [
+    "dist",
+    "suzy.schema.json",
+    "examples",
+    "docs",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc && node scripts/assets.mjs && node scripts/schema.mjs && node scripts/executable.mjs",
+    "dev": "yarn build && node scripts/dev.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "yarn build && node --test tests/core.test.mjs tests/cli.test.mjs",
+    "test:browser": "yarn build && node --test tests/browser.test.mjs",
+    "prepack": "yarn build",
+    "test:package": "node scripts/package-smoke.mjs",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "lint": "biome lint .",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^3.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@types/node": "^26.6.5",
+    "playwright": "^1.64.0",
+    "typescript": "^7.0.2"
+  }
+}
